@@ -10,6 +10,7 @@ public class CoctailRecept {
     private boolean need_rocks;
     private boolean need_wait;
     private boolean need_blend;
+    private boolean can_be_big;
 
     public CoctailRecept(int adelhyde, int bronson_Extract, int flanergide, int powered_Delta, int karmotrine, boolean need_rocks, boolean need_wait, boolean need_blend) {
         Adelhyde = adelhyde;
@@ -20,6 +21,7 @@ public class CoctailRecept {
         this.need_rocks = need_rocks;
         this.need_wait = need_wait;
         this.need_blend = need_blend;
+        this.can_be_big = adelhyde+bronson_Extract+flanergide+powered_Delta+karmotrine <=10;
     }
 
 
@@ -63,4 +65,33 @@ public class CoctailRecept {
     public boolean isNeed_blend() {
         return need_blend;
     }
+
+    public boolean Can_be_big() {
+        return can_be_big;
+    }
+
+    public int compare(int adel,int flane,int bronson, int delta, int karm, boolean ice, boolean wait, boolean blend) {
+
+
+       if(ice == need_rocks && wait==need_wait && blend == need_blend) {
+
+           if (can_be_big && adel == Adelhyde * 2 && flane == Flanergide * 2 && bronson == Bronson_Extract * 2 && delta == Powered_Delta * 2)
+               if (!optionalKarmotrine)
+                   if (karm == Karmotrine * 2) return 2;
+                   else {
+                       return 2;
+                   }
+           if (adel == Adelhyde && flane == Flanergide && bronson == Bronson_Extract && delta == Powered_Delta)
+               if (!optionalKarmotrine)
+                   if (karm == Karmotrine) return 1;
+                   else {
+                       return 1;
+                   }
+
+
+       }
+                return 0;
+    }
+
+
 }
