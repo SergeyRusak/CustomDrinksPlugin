@@ -1,0 +1,8 @@
+name: test
+main: com.animatik.test.Main
+version: 0.0.0
+
+commands:
+  about:
+    description: информация о игроке
+    usage: /about <Player>
