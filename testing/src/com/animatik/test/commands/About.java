@@ -10,11 +10,18 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class About implements CommandExecutor {
+
+    CoctailBook book;
+
+    public About(CoctailBook book) {
+        this.book = book;
+    }
+
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         commandSender.sendMessage(commandSender.getName());
 
-        CoctailBook book = new CoctailBook();
+
         Player p = (Player) commandSender;
         for (Coctail i :book.getBook()
              ) { p.getInventory().addItem(i.GetCoctail());

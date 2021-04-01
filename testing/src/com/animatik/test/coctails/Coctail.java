@@ -2,6 +2,7 @@ package com.animatik.test.coctails;
 
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
@@ -13,7 +14,7 @@ import java.util.List;
 public class Coctail{
     private String name;
     private List<String> lore;
-    private Color color;
+    private int[] color;
     private int Adelhyde;
     private int Bronson_Extract;
     private int Flanergide;
@@ -30,16 +31,17 @@ public class Coctail{
         PotionMeta meta = (PotionMeta) potion.getItemMeta();
         meta.setDisplayName(name);
         meta.setLore(lore);
-        meta.setColor(color);
-        if (Karmotrine > 0) meta.addCustomEffect(new PotionEffect(PotionEffectType.CONFUSION,2*20*Karmotrine, Karmotrine, false,false,false),true);
+        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.setColor(Color.fromRGB(color[0],color[1],color[2]));
+        if (Karmotrine > 0) meta.addCustomEffect(new PotionEffect(PotionEffectType.CONFUSION,2*20*Karmotrine, Karmotrine-1, false,false,false),true);
         potion.setItemMeta(meta);
         return potion;
     }
 
 
 
-    public Coctail(String name,Color color, int adelhyde, int bronson_Extract, int flanergide, int powered_Delta, int karmotrine, boolean need_rocks, boolean need_wait, boolean need_blend) {
-        this.name = name;
+    public Coctail(String name,int[] color, int adelhyde, int bronson_Extract, int flanergide, int powered_Delta, int karmotrine, boolean need_rocks, boolean need_wait, boolean need_blend) {
+        this.name = name+((adelhyde+bronson_Extract+flanergide+powered_Delta+karmotrine >10)?(" - (BIG)"):(""));
         this.color = color;
         Adelhyde = adelhyde;
         Bronson_Extract = bronson_Extract;

@@ -21,7 +21,7 @@ public class CoctailBook{
 
         Type type = new TypeToken<List<Coctail>>(){}.getType();
         try {
-            book = gson.fromJson(new FileReader("plugins/test/Coctail.json"),type);
+            book = gson.fromJson(new FileReader("plugins/Coctails/Coctails.json"),type);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

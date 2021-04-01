@@ -1,70 +1,11 @@
 [
   {
     "name": "1name of coctail",
-    "lore": [
-      "12345",
-      "124546354665",
-      "45645645645"
+    "color": [
+      125,
+      125,
+      125
     ],
-    "Adelhyde": 1,
-    "Bronson_Extract": 1,
-    "Flanergide": 1,
-    "Powered_Delta": 1,
-    "Karmotrine": 1,
-    "need_rocks": false,
-    "need_wait": false,
-    "need_blend": false
-  },
-  {
-    "name": "2name of coctail",
-    "lore": [
-      "12345",
-      "124546354665",
-      "45645645645"
-    ],
-    "Adelhyde": 1,
-    "Bronson_Extract": 1,
-    "Flanergide": 1,
-    "Powered_Delta": 1,
-    "Karmotrine": 1,
-    "need_rocks": false,
-    "need_wait": false,
-    "need_blend": false
-  },
-  {
-    "name": "3name of coctail",
-    "lore": [
-      "12345",
-      "124546354665",
-      "45645645645"
-    ],
-    "Adelhyde": 1,
-    "Bronson_Extract": 1,
-    "Flanergide": 1,
-    "Powered_Delta": 1,
-    "Karmotrine": 1,
-    "need_rocks": false,
-    "need_wait": false,
-    "need_blend": false
-  },
-  {
-    "name": "4name of coctail",
-    "lore": [
-      "12345",
-      "124546354665",
-      "45645645645"
-    ],
-    "Adelhyde": 1,
-    "Bronson_Extract": 1,
-    "Flanergide": 1,
-    "Powered_Delta": 1,
-    "Karmotrine": 1,
-    "need_rocks": false,
-    "need_wait": false,
-    "need_blend": false
-  },
-  {
-    "name": "5name of coctail",
     "lore": [
       "12345",
       "124546354665",
@@ -79,4 +20,5 @@
     "need_wait": false,
     "need_blend": false
   }
+
 ]
