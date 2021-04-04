@@ -10,11 +10,11 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.FileNotFoundException;
@@ -24,6 +24,7 @@ import java.util.List;
 
 public class Main extends JavaPlugin implements Listener {
     public CoctailBook coctailBook;
+    public static Plugin plugin;
     List<ShapelessRecipe> recipes;
     public  void AdelhydeCraft(){
         List<String> lore = new ArrayList<>();
@@ -93,6 +94,8 @@ public class Main extends JavaPlugin implements Listener {
     public void onEnable() {
         super.onEnable();
 
+        plugin = this;
+
 
 
 
@@ -123,7 +126,6 @@ public class Main extends JavaPlugin implements Listener {
 
 
 
-    public void activate
 
 
 
