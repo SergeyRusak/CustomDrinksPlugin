@@ -38,9 +38,51 @@ public class Coctail{
         return potion;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public List<String> getLore() {
+        return lore;
+    }
 
-    public Coctail(String name,int[] color, int adelhyde, int bronson_Extract, int flanergide, int powered_Delta, int karmotrine, boolean need_rocks, boolean need_wait, boolean need_blend) {
+    public int[] getColor() {
+        return color;
+    }
+
+    public int getAdelhyde() {
+        return Adelhyde;
+    }
+
+    public int getBronson_Extract() {
+        return Bronson_Extract;
+    }
+
+    public int getFlanergide() {
+        return Flanergide;
+    }
+
+    public int getPowered_Delta() {
+        return Powered_Delta;
+    }
+
+    public int getKarmotrine() {
+        return Karmotrine;
+    }
+
+    public boolean isNeed_rocks() {
+        return need_rocks;
+    }
+
+    public boolean isNeed_wait() {
+        return need_wait;
+    }
+
+    public boolean isNeed_blend() {
+        return need_blend;
+    }
+
+    public Coctail(String name, int[] color, int adelhyde, int bronson_Extract, int flanergide, int powered_Delta, int karmotrine, boolean need_rocks, boolean need_wait, boolean need_blend) {
         this.name = name+((adelhyde+bronson_Extract+flanergide+powered_Delta+karmotrine >10)?(" - (BIG)"):(""));
         this.color = color;
         Adelhyde = adelhyde;

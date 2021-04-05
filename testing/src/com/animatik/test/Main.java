@@ -25,6 +25,7 @@ import java.util.List;
 public class Main extends JavaPlugin implements Listener {
     public CoctailBook coctailBook;
     public static Plugin plugin;
+    public static CoctailBook book;
     List<ShapelessRecipe> recipes;
     public  void AdelhydeCraft(){
         List<String> lore = new ArrayList<>();
@@ -84,7 +85,9 @@ public class Main extends JavaPlugin implements Listener {
 
 
 
-
+    static public  void Consoleinfo(String m) {
+        plugin.getLogger().info(m);
+    }
     @Override
     public void onDisable() {
         super.onDisable();
@@ -101,7 +104,7 @@ public class Main extends JavaPlugin implements Listener {
 
         Listeners events = new Listeners();
         getServer().getPluginManager().registerEvents(events,this);
-        coctailBook = new CoctailBook();
+         coctailBook = new CoctailBook();
         getCommand("aout").setExecutor(new About(coctailBook));
         AdelhydeCraft();
         Bronson_ExtractCraft();

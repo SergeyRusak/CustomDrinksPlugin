@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,5 +31,24 @@ public class CoctailBook{
     }
     public List<Coctail> getBook() {
         return book;
+    }
+    public Coctail getCoctailfromBook(int Adelhyde,int Flanergide,int Bronson_Extract,int Powered_Delta,int Karmotrine, boolean rocks, boolean wait, boolean blend){
+        for (Coctail c:book) {
+            int size =c.compare(Adelhyde,Flanergide,Bronson_Extract,Powered_Delta, Karmotrine,rocks,wait,blend);
+            if (size != 0){
+                return c;
+
+            }
+
+
+        }
+        int[] color =  {0,0,0};
+        List<String> lore = new ArrayList<>();
+        lore.add("you get this drink when the creation process is disrupted.");
+        lore.add("Follow the directions strictly to get a normal drink.");
+        Coctail co =  new Coctail("Messed up drink",color,Adelhyde,Bronson_Extract,Flanergide,Powered_Delta,Karmotrine,rocks,wait,blend);
+        co.setLore(lore);
+
+        return  co;
     }
 }
