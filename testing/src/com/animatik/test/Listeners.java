@@ -148,7 +148,7 @@ public class Listeners implements Listener {
 
             }
             e.getClickedBlock().setMetadata(ingr, new FixedMetadataValue(Main.plugin, e.getClickedBlock().getMetadata(ingr).get(0).asInt() + 1));
-
+            UpdateCauldron(e.getClickedBlock());
         }
     }
     void AddBoolIngredient(String ingr, PlayerInteractEvent e, boolean remove) {
