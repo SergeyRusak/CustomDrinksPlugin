@@ -1,20 +1,6 @@
 package com.animatik.test.coctails;
 
-import org.bukkit.Location;
-
-import java.util.Map;
-
-public class CoctailsmixersLocations {
-    static public Map<Location,Ingridient> mixers;
-
-
-
-    public CoctailsmixersLocations() {
-
-    }
-
-}
-class Ingridient{
+public class Ingridient {
     int Adelhyde;
     int Bronson_Extract;
     int Flanergide;
@@ -34,6 +20,18 @@ class Ingridient{
         this.wait = wait;
         this.blend = blend;
     }
+
+    public Ingridient() {
+        Adelhyde = 0;
+        Bronson_Extract = 0;
+        Flanergide = 0;
+        Powered_Delta = 0;
+        Karmotrine = 0;
+        this.rocks = false;
+        this.wait = false;
+        this.blend = false;
+    }
+
 
     public int getAdelhyde() {
         return Adelhyde;
@@ -65,5 +63,37 @@ class Ingridient{
 
     public boolean isBlend() {
         return blend;
+    }
+
+    public void setAdelhyde(int adelhyde) {
+        Adelhyde = adelhyde;
+    }
+
+    public void setBronson_Extract(int bronson_Extract) {
+        Bronson_Extract = bronson_Extract;
+    }
+
+    public void setFlanergide(int flanergide) {
+        Flanergide = flanergide;
+    }
+
+    public void setPowered_Delta(int powered_Delta) {
+        Powered_Delta = powered_Delta;
+    }
+
+    public void setKarmotrine(int karmotrine) {
+        Karmotrine = karmotrine;
+    }
+
+    public void setRocks(boolean rocks) {
+        this.rocks = rocks;
+    }
+
+    public void setWait(boolean wait) {
+        this.wait = wait;
+    }
+
+    public void setBlend(boolean blend) {
+        this.blend = blend;
     }
 }

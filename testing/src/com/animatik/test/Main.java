@@ -2,6 +2,7 @@ package com.animatik.test;
 
 
 import com.animatik.test.coctails.CoctailBook;
+import com.animatik.test.coctails.CoctailLocations;
 import com.animatik.test.commands.About;
 
 import org.bukkit.Bukkit;
@@ -26,6 +27,7 @@ public class Main extends JavaPlugin implements Listener {
     public CoctailBook coctailBook;
     public static Plugin plugin;
     public static CoctailBook book;
+    public static CoctailLocations locs;
     List<ShapelessRecipe> recipes;
     public  void AdelhydeCraft(){
         List<String> lore = new ArrayList<>();
@@ -101,7 +103,7 @@ public class Main extends JavaPlugin implements Listener {
 
 
 
-
+        CoctailLocations.importing();
         Listeners events = new Listeners();
         getServer().getPluginManager().registerEvents(events,this);
          coctailBook = new CoctailBook();
