@@ -1,9 +1,8 @@
 package com.animatik.test.coctails;
 
 import org.bukkit.Location;
-import org.bukkit.World;
-import org.bukkit.entity.Player;
 
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -18,6 +17,8 @@ public class CoctailLocations {
         return mixers.get(loc);
     }
     public static void importing(){
+       mixers = new HashMap<Location,Ingridient>();
+
 
 
 }

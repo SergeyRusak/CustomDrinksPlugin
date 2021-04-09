@@ -14,6 +14,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.metadata.FixedMetadataValue;
 
+import java.util.List;
+
 
 public class Listeners implements Listener {
 
@@ -27,27 +29,27 @@ public class Listeners implements Listener {
 
 
 
-            if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName()== ChatColor.RED+"Adelhyde"){
+            if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.RED+"Adelhyde")){
                 AddIngredient("Adelhyde",e);
                 Main.Consoleinfo("Adelhyde ready");
 
             }
-            else if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName()== ChatColor.YELLOW+"Bronson Extract"){
+            else if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.YELLOW+"Bronson Extract")){
                 AddIngredient("Bronson Extract",e);
                 Main.Consoleinfo("Bronson ready");
 
             }
-            else if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName()== ChatColor.GREEN+"Flanergide"){
+            else if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.GREEN+"Flanergide")){
                 AddIngredient("Flanergide",e);
                 Main.Consoleinfo("Flaner ready");
 
             }
-            else if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName()== ChatColor.BLUE+"Powered_Delta"){
+            else if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.BLUE+"Powered_Delta")){
                 AddIngredient("Powered_Delta",e);
                 Main.Consoleinfo("delta ready");
 
             }
-            else if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName()== ChatColor.WHITE+"Karmotrine"){
+            else if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.WHITE+"Karmotrine")){
                 AddIngredient("Karmotrine",e);
                 Main.Consoleinfo("Karmo ready");
 
@@ -72,6 +74,7 @@ public class Listeners implements Listener {
                     }
 
                     Ingridient ingr = CoctailLocations.GetMixer(e.getClickedBlock().getLocation());
+                    Main.Consoleinfo(Main.book.getCoctailfromBook(0,0,0,0,0,false,false,false).getName());
                     Coctail coctail = Main.book.getCoctailfromBook(
                                 ingr.getAdelhyde(),
                                 ingr.getBronson_Extract(),
@@ -83,8 +86,12 @@ public class Listeners implements Listener {
                                 ingr.isBlend());
 
 
-                    if (coctail.getName() !="Messed up drink"){
-                        Coctail Created = new Coctail(coctail.getName(),
+                    if (coctail.getName().equals("Messed up drink")){
+
+                        List<String> templore = coctail.getLore();
+
+
+                        coctail = new Coctail(coctail.getName(),
                                                       coctail.getColor(),
                                                       coctail.getAdelhyde(),
                                                       coctail.getBronson_Extract(),
@@ -94,12 +101,14 @@ public class Listeners implements Listener {
                                                       coctail.isNeed_rocks(),
                                                       coctail.isNeed_wait(),
                                                       coctail.isNeed_blend());
-                        Created.setLore(coctail.getLore());
-                        e.getPlayer().getInventory().addItem(Created.GetCoctail());
-                        CoctailLocations.reset(e.getClickedBlock().getLocation());
+                        coctail.setLore(templore);
+
+
 
 
                     }
+                    e.getPlayer().getInventory().addItem(coctail.GetCoctail());
+                    CoctailLocations.reset(e.getClickedBlock().getLocation());
                 }
 
 

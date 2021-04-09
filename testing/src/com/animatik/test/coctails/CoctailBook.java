@@ -1,9 +1,9 @@
 package com.animatik.test.coctails;
 
+import com.animatik.test.Main;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,28 +13,41 @@ import java.util.List;
 
 
 public class CoctailBook{
-    List<Coctail> book;
+    static List<Coctail> book;
     Gson gson = new Gson();
 
 
-    public CoctailBook(){
+
+
+   static void generateBook(){
         Gson gson = new Gson();
 
         Type type = new TypeToken<List<Coctail>>(){}.getType();
         try {
             book = gson.fromJson(new FileReader("plugins/Coctails/Coctails.json"),type);
+            Main.Consoleinfo(book.get(0).getName());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
 
+    public CoctailBook(){
+        generateBook();
 
     }
     public List<Coctail> getBook() {
         return book;
     }
-    public Coctail getCoctailfromBook(int Adelhyde,int Flanergide,int Bronson_Extract,int Powered_Delta,int Karmotrine, boolean rocks, boolean wait, boolean blend){
+    public static Coctail getCoctailfromBook(int Adelhyde,int Flanergide,int Bronson_Extract,int Powered_Delta,int Karmotrine, boolean rocks, boolean wait, boolean blend){
+        if (book.get(0) == null) generateBook();
+
+
+        Main.Consoleinfo(book.get(0).getName());
         for (Coctail c:book) {
+
+            Main.Consoleinfo(c.getName());
             int size =c.compare(Adelhyde,Flanergide,Bronson_Extract,Powered_Delta, Karmotrine,rocks,wait,blend);
+            Main.Consoleinfo(size+"");
             if (size != 0){
                 return c;
 

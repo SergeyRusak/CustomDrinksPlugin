@@ -107,6 +107,7 @@ public class Main extends JavaPlugin implements Listener {
         Listeners events = new Listeners();
         getServer().getPluginManager().registerEvents(events,this);
          coctailBook = new CoctailBook();
+         Consoleinfo(coctailBook.getBook().get(0).getName());
         getCommand("aout").setExecutor(new About(coctailBook));
         AdelhydeCraft();
         Bronson_ExtractCraft();
