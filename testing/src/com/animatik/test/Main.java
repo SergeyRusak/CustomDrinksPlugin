@@ -1,6 +1,7 @@
 package com.animatik.test;
 
 
+import com.animatik.test.coctails.BookRecipe;
 import com.animatik.test.coctails.CoctailBook;
 import com.animatik.test.coctails.CoctailLocations;
 import com.animatik.test.commands.About;
@@ -84,6 +85,12 @@ public class Main extends JavaPlugin implements Listener {
         recept.addIngredient(Material.GLASS_BOTTLE);
         Bukkit.addRecipe(recept);
     }
+    public void RecipeBook(){
+        ShapelessRecipe recept = new ShapelessRecipe(NamespacedKey.minecraft("recbook"), BookRecipe.GetBook());
+        recept.addIngredient(Material.WRITABLE_BOOK);
+        recept.addIngredient(Material.GLASS_BOTTLE);
+        Bukkit.addRecipe(recept);
+    }
 
 
 
@@ -123,7 +130,7 @@ public class Main extends JavaPlugin implements Listener {
             e.printStackTrace();
         }
 
-
+        RecipeBook();
     }
 
     public CoctailBook getCoctailBook() {

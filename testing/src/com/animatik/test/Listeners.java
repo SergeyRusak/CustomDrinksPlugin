@@ -57,11 +57,11 @@ public class Listeners implements Listener {
             else if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.ICE){
                 AddBoolIngredient("Rock",e,true);
             }
-            else if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.CLOCK){
+            else if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.IRON_HOE){
                 AddBoolIngredient("Wait",e,false);
             }
             else if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.IRON_SHOVEL){
-                AddBoolIngredient("Blend",e,true);
+                AddBoolIngredient("Blend",e,false);
             }
             else if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.GLASS_BOTTLE){
                 if (CoctailLocations.GetCount(e.getClickedBlock().getLocation())>0){
@@ -85,7 +85,7 @@ public class Listeners implements Listener {
                                 ingr.isWait(),
                                 ingr.isBlend());
 
-
+                    coctail.setKarmotrine(ingr.getKarmotrine());
                     if (coctail.getName().equals("Messed up drink")){
 
                         List<String> templore = coctail.getLore();
@@ -138,7 +138,7 @@ public class Listeners implements Listener {
            b.setBlockData(cauldronData);
 
        }
-       else if (i==20){
+       else if (i>19){
            Levelled cauldronData = (Levelled) b.getBlockData();
            cauldronData.setLevel(3);
            b.setBlockData(cauldronData);

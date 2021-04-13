@@ -42,12 +42,19 @@ public class CoctailBook{
         if (book.get(0) == null) generateBook();
 
 
-        Main.Consoleinfo(book.get(0).getName());
+        Main.Consoleinfo("Adelhyde:"+Adelhyde);
+        Main.Consoleinfo("Flanergide:"+Flanergide);
+        Main.Consoleinfo("Bronson_Extract:"+Bronson_Extract);
+        Main.Consoleinfo("Powered_Delta:"+Powered_Delta);
+        Main.Consoleinfo("Karmotrine:"+Karmotrine);
+        Main.Consoleinfo("Rocks:"+ rocks);
+        Main.Consoleinfo("Aged:"+wait);
+        Main.Consoleinfo("Blend:"+blend);
         for (Coctail c:book) {
 
             Main.Consoleinfo(c.getName());
             int size =c.compare(Adelhyde,Flanergide,Bronson_Extract,Powered_Delta, Karmotrine,rocks,wait,blend);
-            Main.Consoleinfo(size+"");
+            Main.Consoleinfo(c.getName()+" "+ size);
             if (size != 0){
                 return c;
 

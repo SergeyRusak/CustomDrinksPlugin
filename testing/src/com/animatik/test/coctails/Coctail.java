@@ -82,7 +82,7 @@ public class Coctail{
         return need_blend;
     }
 
-    public Coctail(String name, int[] color, int adelhyde, int bronson_Extract, int flanergide, int powered_Delta, int karmotrine, boolean need_rocks, boolean need_wait, boolean need_blend) {
+    public Coctail(String name, int[] color, int adelhyde, int flanergide, int bronson_Extract,  int powered_Delta, int karmotrine, boolean need_rocks, boolean need_wait, boolean need_blend) {
         this.name = name+((adelhyde+bronson_Extract+flanergide+powered_Delta+karmotrine >10)?(" - (BIG)"):(""));
         this.color = color;
         Adelhyde = adelhyde;
@@ -121,5 +121,10 @@ public class Coctail{
 
         }
         return 0;
+    }
+
+
+    public void setKarmotrine(int karmotrine) {
+        Karmotrine = karmotrine;
     }
 }
