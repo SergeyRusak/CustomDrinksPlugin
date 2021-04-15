@@ -84,7 +84,7 @@ public class Coctail{
     }
 
     public Coctail(String name, int[] color, int adelhyde, int flanergide, int bronson_Extract,  int powered_Delta, int karmotrine, boolean need_rocks, boolean need_wait, boolean need_blend) {
-        this.name = name+((adelhyde+bronson_Extract+flanergide+powered_Delta+karmotrine >10)?(" - (BIG)"):(""));
+        this.name = name;
         this.color = color;
         Adelhyde = adelhyde;
         Bronson_Extract = bronson_Extract;
@@ -102,19 +102,6 @@ public class Coctail{
 
 
     public int compare(int adel,int flane,int bronson, int delta, int karm, boolean ice, boolean wait, boolean blend) {
-        Main.Consoleinfo("Adelhyde - "+(adel==Adelhyde));
-        Main.Consoleinfo("2xAdelhyde - "+(adel==Adelhyde*2));
-        Main.Consoleinfo("Flanergide - "+(flane==Flanergide));
-        Main.Consoleinfo("2xFlanergide - "+(flane==Flanergide*2));
-        Main.Consoleinfo("Bronson - "+(bronson==Bronson_Extract));
-        Main.Consoleinfo("2xBronson - "+(bronson==2*Bronson_Extract));
-        Main.Consoleinfo("Delta - "+(delta=Powered_Delta));
-        Main.Consoleinfo("2xDelta - "+(delta==Powered_Delta*2));
-        Main.Consoleinfo("Karmotrine - "+(karm==Karmotrine));
-        Main.Consoleinfo("2xKarmotrine - "+(karm==Karmotrine*2));
-        Main.Consoleinfo("Rocks -"+ (ice==need_rocks) );
-        Main.Consoleinfo("Aged -"+ (wait==need_wait) );
-        Main.Consoleinfo("Blend -"+ (blend==need_blend) );
 
         if (ice==need_rocks && wait==need_wait && blend == need_blend) {
             if( adel ==Adelhyde &&

@@ -56,10 +56,13 @@ public class CoctailBook{
             int size =c.compare(Adelhyde,Flanergide,Bronson_Extract,Powered_Delta, Karmotrine,rocks,wait,blend);
             Main.Consoleinfo(c.getName()+" "+ size);
             if (size != 0){
-                if (size ==2){
-                     return new Coctail(c.getName()+ "-(BIG)",c.getColor(), c.getAdelhyde(), c.getFlanergide(),c.getBronson_Extract(),c.getPowered_Delta(), c.getKarmotrine(),c.isNeed_rocks(),c.isNeed_wait(), c.isNeed_blend());
-                }
-                return c;
+                Coctail coctail;
+                coctail = new Coctail(c.getName()+ ((size==2)?("-(BIG)"):("")),c.getColor(), c.getAdelhyde(), c.getFlanergide(),c.getBronson_Extract(),c.getPowered_Delta(), c.getKarmotrine(),c.isNeed_rocks(),c.isNeed_wait(), c.isNeed_blend());
+
+                coctail.setLore(c.getLore());
+                coctail.setKarmotrine(Karmotrine);
+                return  coctail;
+
 
             }
 
