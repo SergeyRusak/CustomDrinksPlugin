@@ -1,5 +1,6 @@
 package com.animatik.test.coctails;
 
+import com.animatik.test.Main;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemFlag;
@@ -101,22 +102,42 @@ public class Coctail{
 
 
     public int compare(int adel,int flane,int bronson, int delta, int karm, boolean ice, boolean wait, boolean blend) {
+        Main.Consoleinfo("Adelhyde - "+(adel==Adelhyde));
+        Main.Consoleinfo("2xAdelhyde - "+(adel==Adelhyde*2));
+        Main.Consoleinfo("Flanergide - "+(flane==Flanergide));
+        Main.Consoleinfo("2xFlanergide - "+(flane==Flanergide*2));
+        Main.Consoleinfo("Bronson - "+(bronson==Bronson_Extract));
+        Main.Consoleinfo("2xBronson - "+(bronson==2*Bronson_Extract));
+        Main.Consoleinfo("Delta - "+(delta=Powered_Delta));
+        Main.Consoleinfo("2xDelta - "+(delta==Powered_Delta*2));
+        Main.Consoleinfo("Karmotrine - "+(karm==Karmotrine));
+        Main.Consoleinfo("2xKarmotrine - "+(karm==Karmotrine*2));
+        Main.Consoleinfo("Rocks -"+ (ice==need_rocks) );
+        Main.Consoleinfo("Aged -"+ (wait==need_wait) );
+        Main.Consoleinfo("Blend -"+ (blend==need_blend) );
+
+        if (ice==need_rocks && wait==need_wait && blend == need_blend) {
+            if( adel ==Adelhyde &&
+                flane == Flanergide &&
+                bronson == Bronson_Extract &&
+                delta == Powered_Delta)
+            {
+             if(Karmotrine == -1 || Karmotrine == karm)
+                 if (GetCount() >10)
+                     return 2;
+                 else
+                     return 1;
+            }
+            else if ( adel ==Adelhyde * 2 &&
+                    flane == Flanergide * 2 &&
+                    bronson == Bronson_Extract * 2 &&
+                    delta == Powered_Delta * 2)
+            {
+                if(Karmotrine == -1 || Karmotrine * 2 == karm)
+                    return 2;
+            }
 
 
-        if(ice == need_rocks && wait==need_wait && blend == need_blend) {
-
-            if (adel == Adelhyde * 2 && flane == Flanergide * 2 && bronson == Bronson_Extract * 2 && delta == Powered_Delta * 2)
-                if (!(Karmotrine < 0))
-                    if (karm == Karmotrine * 2) return 2;
-                    else {
-                        return 2;
-                    }
-            if (adel == Adelhyde && flane == Flanergide && bronson == Bronson_Extract && delta == Powered_Delta)
-                if (!(Karmotrine <0))
-                    if (karm == Karmotrine) return 1;
-                    else {
-                        return 1;
-                    }
 
 
         }
@@ -126,5 +147,9 @@ public class Coctail{
 
     public void setKarmotrine(int karmotrine) {
         Karmotrine = karmotrine;
+    }
+
+    public int GetCount(){
+        return Adelhyde+Flanergide+Bronson_Extract+Powered_Delta+((Karmotrine ==-1)?(0):(Karmotrine));
     }
 }

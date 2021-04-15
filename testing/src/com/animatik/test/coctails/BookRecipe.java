@@ -21,26 +21,40 @@ public class BookRecipe {
         for ( Coctail i: recipes) {
             String page = "";
 
-            page += ChatColor.BOLD+i.getName()+"\n"+"\"";
+            page += ChatColor.BOLD+i.getName()+"\n" + ChatColor.RESET;
+            page += "_____\n";
+            for (int j = 0; j <i.getLore().size()-1 ; j++) {
+                page += i.getLore().get(j) +" ";
+            }
+            page += ChatColor.BOLD+"\n";
+            page += i.getLore().get(i.getLore().size()-1);
+
+            pages.add(page);
 
 
-            page+="\"\n";
+
+
+            page="";
+            page += ChatColor.BOLD+i.getName()+"\n";
+            page += "_____\n";
             page += ChatColor.DARK_AQUA+ i.getLore().get(i.getLore().size()-1)+"\"\n\n";
             page +=ChatColor.RED +"Adelhyde: "+ i.getAdelhyde()+"\n";
-            page +=ChatColor.YELLOW+"Bronson Extract: "+ i.getBronson_Extract()+"\n";
+            page +=ChatColor.GOLD+"Bronson Extract: "+ i.getBronson_Extract()+"\n";
             page +=ChatColor.GREEN +"Flanergyde: "+ i.getFlanergide()+"\n";
             page +=ChatColor.DARK_BLUE +"Powered Delta: "+ i.getPowered_Delta()+"\n";
-            page +=ChatColor.DARK_GRAY +"Karmotrine: "+ i.getKarmotrine()+"\n";
+            page +=ChatColor.DARK_GRAY +"Karmotrine: "+ ((i.getKarmotrine() == -1)?("Optional"):(i.getKarmotrine()))+"\n";
             String prop = ChatColor.BLACK+"";
             if (i.isNeed_rocks()) prop+= "On the rocks";
-            if (i.isNeed_blend()&& i.isNeed_wait())prop+=", ";
-            if (i.isNeed_wait()) prop+= "Aged";
-            if (i.isNeed_blend()|| i.isNeed_wait())prop+=" and ";
+            if (i.isNeed_rocks()&& i.isNeed_wait())prop+=",";
+            if (i.isNeed_wait()) prop+= " Aged";
+            if (i.isNeed_rocks()|| i.isNeed_wait())prop+=" and ";
             if (i.isNeed_blend()) prop+= "Blended";
                 else prop += "Mixed";
             page += prop+"\n\n";
 
             pages.add(page);
+
+
         }
         meta.setPages(pages);
 

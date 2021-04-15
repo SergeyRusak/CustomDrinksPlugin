@@ -74,11 +74,10 @@ public class Listeners implements Listener {
                     }
 
                     Ingridient ingr = CoctailLocations.GetMixer(e.getClickedBlock().getLocation());
-                    Main.Consoleinfo(Main.book.getCoctailfromBook(0,0,0,0,0,false,false,false).getName());
                     Coctail coctail = Main.book.getCoctailfromBook(
                                 ingr.getAdelhyde(),
-                                ingr.getBronson_Extract(),
                                 ingr.getFlanergide(),
+                                ingr.getBronson_Extract(),
                                 ingr.getPowered_Delta(),
                                 ingr.getKarmotrine(),
                                 ingr.isRocks(),
