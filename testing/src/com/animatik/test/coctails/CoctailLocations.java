@@ -71,9 +71,11 @@ public class CoctailLocations {
 
     public static int GetCount(Location loc){
         Ingridient temp = mixers.get(loc);
+        if (temp == null) temp = new Ingridient();
         return temp.getAdelhyde()+temp.getBronson_Extract()+temp.getFlanergide()+temp.getPowered_Delta()+temp.getKarmotrine();
     }
 public static void reset(Location loc){
+
         mixers.replace(loc,new Ingridient());
 }
 
