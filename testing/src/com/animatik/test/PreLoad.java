@@ -105,6 +105,7 @@ public class PreLoad {
 
     private static  void Coctail_book(){
         Coctailbook = new CoctailBook();
+        Coctailbook.GenBook();
     }
 
 
@@ -117,6 +118,7 @@ public class PreLoad {
 // init
 
     public static void Startup(Plugin plugin){
+        Coctail_book();
         RecipeBook();
         AdelhydeCraft();
         FlanergideCraft();
@@ -124,7 +126,7 @@ public class PreLoad {
         Powered_DeltaCraft();
         KarmotrineCraft();
         CoctailLocations.importing();
-        Coctail_book();
+
         Listenering(plugin);
     }
 

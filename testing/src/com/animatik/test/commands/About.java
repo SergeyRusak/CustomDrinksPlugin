@@ -22,18 +22,6 @@ public class About implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         commandSender.sendMessage(commandSender.getName());
 
-
-        Player p = (Player) commandSender;
-        for (Coctail i :book.getBook()
-             ) { p.getInventory().addItem(i.GetCoctail());
-
-        }
-
-
-
-
-
-
         return false;
     }
 }

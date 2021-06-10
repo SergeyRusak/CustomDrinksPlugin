@@ -18,28 +18,23 @@ public class CoctailBook{
 
 
 
-
-   static void generateBook(){
+    public static void GenBook(){
         Gson gson = new Gson();
 
         Type type = new TypeToken<List<Coctail>>(){}.getType();
         try {
             book = gson.fromJson(new FileReader("plugins/Coctails/Coctails.json"),type);
-            Main.Consoleinfo(book.get(0).getName());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public CoctailBook(){
-        generateBook();
 
-    }
     public List<Coctail> getBook() {
         return book;
     }
     public static Coctail getCoctailfromBook(int Adelhyde,int Flanergide,int Bronson_Extract,int Powered_Delta,int Karmotrine, boolean rocks, boolean wait, boolean blend){
-        if (book.get(0) == null) generateBook();
+        if (book.get(0) == null) GenBook();
 
 
         Main.Consoleinfo("Adelhyde:"+Adelhyde);

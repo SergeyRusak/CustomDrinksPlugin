@@ -28,6 +28,14 @@ import static com.animatik.test.PreLoad.RecipeBook;
 
 public class Main extends JavaPlugin implements Listener {
 
+
+
+    static public void Consoleinfo(String m) {
+        PreLoad.plugin.getLogger().info(m);
+    }
+
+
+
     @Override
     public void onDisable() {
         super.onDisable();
@@ -39,7 +47,5 @@ public class Main extends JavaPlugin implements Listener {
         PreLoad.Startup(this);
     }
 
-    static public  void Consoleinfo(String m) {
-        PreLoad.plugin.getLogger().info(m);
-    }
+
 }
