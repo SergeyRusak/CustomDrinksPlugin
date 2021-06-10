@@ -1,6 +1,7 @@
 package com.animatik.test.tech;
 
 import com.animatik.test.Main;
+import com.animatik.test.PreLoad;
 import com.animatik.test.coctails.Coctail;
 import com.animatik.test.coctails.CoctailLocations;
 import com.animatik.test.coctails.Ingridient;
@@ -102,7 +103,7 @@ public class ListenerTouchCauldrone {
         }
 
         Ingridient ingr = CoctailLocations.GetMixer(loc);
-        Coctail coctail = Main.book.getCoctailfromBook(
+        Coctail coctail = PreLoad.Coctailbook.getCoctailfromBook(
                 ingr.getAdelhyde(),
                 ingr.getFlanergide(),
                 ingr.getBronson_Extract(),
