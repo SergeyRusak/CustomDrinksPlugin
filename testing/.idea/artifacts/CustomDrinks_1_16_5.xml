@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="testing:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/testing_jar</output-path>
-    <root id="archive" name="testing.jar">
+  <artifact type="jar" name="CustomDrinks_1.16.5">
+    <output-path>$PROJECT_DIR$/out/artifacts/CustomDrinks_1_16_5_jar</output-path>
+    <root id="archive" name="CustomDrinks_1.16.5.jar">
       <element id="module-output" name="testing" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../Spigot/spigot-1.16.5.jar" path-in-jar="/" />
     </root>

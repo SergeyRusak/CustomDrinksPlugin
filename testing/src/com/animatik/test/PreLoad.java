@@ -3,6 +3,7 @@ package com.animatik.test;
 import com.animatik.test.coctails.BookRecipe;
 import com.animatik.test.coctails.CoctailBook;
 import com.animatik.test.coctails.CoctailLocations;
+import com.animatik.test.tech.Sounds;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -22,7 +23,7 @@ import static org.bukkit.Bukkit.getServer;
 public class PreLoad {
 
     public static ItemStack RecipeBook;
-    public static ItemStack Adelhyde,Bronson_Extract,Flanergide,Powered_Delta,Karmotrine;
+    public static ItemStack Adelhyde,Bronson_Extract,Flanergide,Powered_Delta,Karmotrine, forRock, forAged, forBlend, forDrink;
     public static CoctailBook Coctailbook;
 
     public static  Plugin plugin;
@@ -65,7 +66,7 @@ public class PreLoad {
         lore.add(ChatColor.WHITE+"One of the five main ingredients for drinks.");
         lore.add(ChatColor.WHITE+"It's the sour component in drinks.");
         lore.add(ChatColor.WHITE+"All drinks in the sour section have bronson extract in them.");
-        Powered_Delta = IngrToItem(Material.BLUE_DYE,ChatColor.BLUE+"Powered_Delta",lore);
+        Powered_Delta = IngrToItem(Material.BLUE_DYE,ChatColor.BLUE+"Powered Delta",lore);
         ingredientCraft(Powered_Delta, "powered_delta", Material.WHEAT_SEEDS);
 
     }
@@ -103,6 +104,22 @@ public class PreLoad {
         Bukkit.addRecipe(recept);
     }
 
+    private static void preloadIng(){
+        AdelhydeCraft();
+        FlanergideCraft();
+        Bronson_ExtractCraft();
+        Powered_DeltaCraft();
+        KarmotrineCraft();
+
+        forBlend = new ItemStack(Material.IRON_SHOVEL);
+        forAged = new ItemStack(Material.CLOCK);
+        forRock = new ItemStack(Material.ICE);
+        forDrink = new ItemStack(Material.GLASS_BOTTLE);
+
+
+
+    }
+
     private static  void Coctail_book(){
         Coctailbook = new CoctailBook();
         Coctailbook.GenBook();
@@ -120,13 +137,9 @@ public class PreLoad {
     public static void Startup(Plugin plugin){
         Coctail_book();
         RecipeBook();
-        AdelhydeCraft();
-        FlanergideCraft();
-        Bronson_ExtractCraft();
-        Powered_DeltaCraft();
-        KarmotrineCraft();
+        preloadIng();
         CoctailLocations.importing();
-
+        Sounds.PreLoadSounds();
         Listenering(plugin);
     }
 

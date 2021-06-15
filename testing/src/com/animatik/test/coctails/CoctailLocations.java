@@ -78,6 +78,15 @@ public static void reset(Location loc){
 
         mixers.replace(loc,new Ingridient());
 }
+public static boolean remove(Location loc){
+      if (Contains(loc)){
+         mixers.remove(loc);
+         return true;
+      }
+
+
+        return false;
+}
 
 
 

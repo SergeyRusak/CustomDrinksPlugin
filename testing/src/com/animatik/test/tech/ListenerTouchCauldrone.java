@@ -7,9 +7,12 @@ import com.animatik.test.coctails.CoctailLocations;
 import com.animatik.test.coctails.Ingridient;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Levelled;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.PlayerInventory;
 
@@ -28,7 +31,7 @@ public class ListenerTouchCauldrone {
         }
 
 
-        if (    (ingr.equals("Wait")&& !CoctailLocations.GetMixer(e.getClickedBlock().getLocation()).isWait()    )||
+        if (    (ingr.equals("Age")&& !CoctailLocations.GetMixer(e.getClickedBlock().getLocation()).isWait()    )||
                 (ingr.equals("Rock")&& !CoctailLocations.GetMixer(e.getClickedBlock().getLocation()).isRocks()     )||
                 (ingr.equals("Blend")&& !CoctailLocations.GetMixer(e.getClickedBlock().getLocation()).isBlend()   )||
                 CoctailLocations.GetCount(e.getClickedBlock().getLocation()) < 20) {
@@ -47,27 +50,35 @@ public class ListenerTouchCauldrone {
             switch (ingr) {
                 case "Adelhyde":
                     CoctailLocations.update(1, e.getClickedBlock().getLocation());
+                    Sounds.PlaySound(Sounds.addIngr,e.getPlayer(),e.getClickedBlock().getLocation());
                     break;
                 case "Bronson Extract":
                     CoctailLocations.update(2, e.getClickedBlock().getLocation());
+                    Sounds.PlaySound(Sounds.addIngr,e.getPlayer(),e.getClickedBlock().getLocation());
                     break;
                 case "Flanergide":
                     CoctailLocations.update(3, e.getClickedBlock().getLocation());
+                    Sounds.PlaySound(Sounds.addIngr,e.getPlayer(),e.getClickedBlock().getLocation());
                     break;
-                case "Powered_Delta":
+                case "Powered Delta":
                     CoctailLocations.update(4, e.getClickedBlock().getLocation());
+                    Sounds.PlaySound(Sounds.addIngr,e.getPlayer(),e.getClickedBlock().getLocation());
                     break;
                 case "Karmotrine":
                     CoctailLocations.update(5, e.getClickedBlock().getLocation());
+                    Sounds.PlaySound(Sounds.addIngr,e.getPlayer(),e.getClickedBlock().getLocation());
                     break;
                 case "Rock":
                     CoctailLocations.update(6,e.getClickedBlock().getLocation());
+                    Sounds.PlaySound(Sounds.addRock,e.getPlayer(),e.getClickedBlock().getLocation());
                     break;
-                case "Wait":
+                case "Age":
                     CoctailLocations.update(7,e.getClickedBlock().getLocation());
+                    Sounds.PlaySound(Sounds.age,e.getPlayer(),e.getClickedBlock().getLocation());
                     break;
                 case "Blend":
                     CoctailLocations.update(8,e.getClickedBlock().getLocation());
+                    Sounds.PlaySound(Sounds.blend,e.getPlayer(),e.getClickedBlock().getLocation());
                     break;
             }
 
@@ -114,12 +125,41 @@ public class ListenerTouchCauldrone {
                 ingr.isBlend());
 
         inv.addItem(coctail.GetCoctail());
+        Sounds.PlaySound(Sounds.pickupDrink,player,loc);
         CoctailLocations.reset(loc);
         UpdateCauldron(loc);
 
     }
 
+public static void DestroyCauldron(BlockBreakEvent e){
+      Ingridient ing = CoctailLocations.GetMixer(e.getBlock().getLocation());
 
+      // drop items
+    for (int i = 0; i < ing.getAdelhyde() ; i++) {
+        e.getPlayer().getWorld().dropItemNaturally(e.getBlock().getLocation(),PreLoad.Adelhyde);
+
+    }
+    for (int i = 0; i < ing.getFlanergide() ; i++) {
+        e.getPlayer().getWorld().dropItemNaturally(e.getBlock().getLocation(),PreLoad.Flanergide);
+
+    }
+    for (int i = 0; i < ing.getBronson_Extract() ; i++) {
+        e.getPlayer().getWorld().dropItemNaturally(e.getBlock().getLocation(),PreLoad.Bronson_Extract);
+
+    }
+    for (int i = 0; i < ing.getPowered_Delta() ; i++) {
+        e.getPlayer().getWorld().dropItemNaturally(e.getBlock().getLocation(),PreLoad.Powered_Delta);
+
+    }
+    for (int i = 0; i < ing.getKarmotrine() ; i++) {
+        e.getPlayer().getWorld().dropItemNaturally(e.getBlock().getLocation(),PreLoad.Karmotrine);
+
+    }
+      // end drop items
+
+    CoctailLocations.remove(e.getBlock().getLocation());
+
+}
 
 
 
