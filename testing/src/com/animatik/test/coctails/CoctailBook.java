@@ -2,7 +2,6 @@ package com.animatik.test.coctails;
 
 import com.animatik.test.Main;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileNotFoundException;
@@ -65,11 +64,27 @@ public class CoctailBook{
         }
         int[] color =  {0,0,0};
         List<String> lore = new ArrayList<>();
-        lore.add("you get this drink when the creation process is disrupted.");
+        lore.add("You get this drink when the creation process is disrupted.");
         lore.add("Follow the directions strictly to get a normal drink.");
         Coctail co =  new Coctail("Messed up drink",color,Adelhyde,Bronson_Extract,Flanergide,Powered_Delta,Karmotrine,rocks,wait,blend);
         co.setLore(lore);
 
         return  co;
     }
+
+    public static void CheckConflicts(){
+        int collides = 0;
+        for (int i = 0; i < book.size(); i++) {
+            for (int j = i; j < book.size() ; j++) {
+                if (book.get(i).comapareHard(book.get(j))){
+                    collides++;
+                    Main.Consoleinfo("Warning! Same drinks: " + book.get(i).getName() + " and " +book.get(j).getName());
+                }
+            }
+        }
+        if (collides != 0) Main.Consoleinfo("Recipe Conflicts:" + collides);
+
+
+    }
+
 }

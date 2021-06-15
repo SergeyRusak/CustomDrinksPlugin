@@ -142,6 +142,10 @@ public class PreLoad {
         Sounds.PreLoadSounds();
         Listenering(plugin);
     }
+    public static void Finish(Plugin plugin){
+
+        CoctailLocations.exporting();
+    }
 
 
 

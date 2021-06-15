@@ -100,6 +100,16 @@ public class Coctail{
         this.lore = lore;
     }
 
+    public boolean comapareHard(Coctail coctail){
+        return  this.Adelhyde == coctail.Adelhyde &&
+                this.Flanergide == coctail.Flanergide &&
+                this.Bronson_Extract == coctail.Bronson_Extract &&
+                this.Powered_Delta == coctail.Powered_Delta &&
+                this.Karmotrine == coctail.Karmotrine &&
+                this.need_blend == coctail.need_blend &&
+                this.need_wait == coctail.need_wait &&
+                this.need_rocks == coctail.need_rocks;
+    }
 
     public int compare(int adel,int flane,int bronson, int delta, int karm, boolean ice, boolean wait, boolean blend) {
 

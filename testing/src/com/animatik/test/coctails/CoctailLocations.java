@@ -2,7 +2,13 @@ package com.animatik.test.coctails;
 
 import org.bukkit.Location;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.*;
+import java.lang.reflect.Type;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -17,11 +23,34 @@ public class CoctailLocations {
         return mixers.get(loc);
     }
     public static void importing(){
-       mixers = new HashMap<Location,Ingridient>();
+
+        Gson gson = new Gson();
+
+        Type type = new TypeToken<HashMap<Location,Ingridient>>(){}.getType();
+        try {
+            mixers = gson.fromJson(new FileReader("plugins/Coctails/Mixers.json"),type);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            mixers = new HashMap<Location,Ingridient>();
+        }
+
+
 
 
 
 }
+    public  static void exporting(){
+        Gson gson = new Gson();
+
+        try {
+            Writer write = new FileWriter("plugins/Coctails/Mixers.json");
+            gson.toJson(mixers,write);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     public static boolean Contains(Location loc){
         return mixers.containsKey(loc);
