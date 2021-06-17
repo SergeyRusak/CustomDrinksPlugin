@@ -1,5 +1,6 @@
 package com.animatik.test.coctails;
 
+import com.google.gson.GsonBuilder;
 import org.bukkit.Location;
 
 import com.google.gson.Gson;
@@ -8,7 +9,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -27,20 +27,20 @@ public class CoctailLocations {
         Gson gson = new Gson();
 
         Type type = new TypeToken<HashMap<Location,Ingridient>>(){}.getType();
+
         try {
             mixers = gson.fromJson(new FileReader("plugins/Coctails/Mixers.json"),type);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            mixers = new HashMap<Location,Ingridient>();
+
         }
 
 
-
-
+        mixers = new HashMap<>();
 
 }
     public  static void exporting(){
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().create();
 
         try {
             Writer write = new FileWriter("plugins/Coctails/Mixers.json");

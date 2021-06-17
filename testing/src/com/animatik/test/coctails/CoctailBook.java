@@ -35,20 +35,9 @@ public class CoctailBook{
     public static Coctail getCoctailfromBook(int Adelhyde,int Flanergide,int Bronson_Extract,int Powered_Delta,int Karmotrine, boolean rocks, boolean wait, boolean blend){
         if (book.get(0) == null) GenBook();
 
-
-        Main.Consoleinfo("Adelhyde:"+Adelhyde);
-        Main.Consoleinfo("Flanergide:"+Flanergide);
-        Main.Consoleinfo("Bronson_Extract:"+Bronson_Extract);
-        Main.Consoleinfo("Powered_Delta:"+Powered_Delta);
-        Main.Consoleinfo("Karmotrine:"+Karmotrine);
-        Main.Consoleinfo("Rocks:"+ rocks);
-        Main.Consoleinfo("Aged:"+wait);
-        Main.Consoleinfo("Blend:"+blend);
         for (Coctail c:book) {
 
-            Main.Consoleinfo(c.getName());
             int size =c.compare(Adelhyde,Flanergide,Bronson_Extract,Powered_Delta, Karmotrine,rocks,wait,blend);
-            Main.Consoleinfo(c.getName()+" "+ size);
             if (size != 0){
                 Coctail coctail;
                 coctail = new Coctail(c.getName()+ ((size==2)?("-(BIG)"):("")),c.getColor(), c.getAdelhyde(), c.getFlanergide(),c.getBronson_Extract(),c.getPowered_Delta(), c.getKarmotrine(),c.isNeed_rocks(),c.isNeed_wait(), c.isNeed_blend());

@@ -13,7 +13,9 @@ import org.bukkit.block.data.Levelled;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.CauldronLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
 import java.util.List;
@@ -95,17 +97,18 @@ public class ListenerTouchCauldrone {
     static void UpdateCauldron(Block b) {
         int i = CoctailLocations.GetCount(b.getLocation());
         Levelled cauldronData = (Levelled) b.getBlockData();
-
         if (i == 0) cauldronData.setLevel(0);
         else if (i <= 10) cauldronData.setLevel(1);
         else if (i > 10 && i < 20) cauldronData.setLevel(2);
         else if (i > 19) cauldronData.setLevel(3);
-        b.setBlockData(cauldronData);
 
+        b.setBlockData(cauldronData);
+        Main.Consoleinfo("Cauldron level is " +((Levelled)b.getBlockData()).getLevel());
     }
 
     public static void GetDrink(Player player, Location loc) {
         PlayerInventory inv = player.getInventory();
+
         if (inv.getItemInMainHand().getAmount() == 1) {
             inv.remove(inv.getItemInMainHand());
         } else {
@@ -158,6 +161,11 @@ public static void DestroyCauldron(BlockBreakEvent e){
       // end drop items
 
     CoctailLocations.remove(e.getBlock().getLocation());
+
+}
+public static void CancelFill(CauldronLevelChangeEvent e){
+        Main.Consoleinfo("Event cought");
+        UpdateCauldron(e.getBlock());
 
 }
 

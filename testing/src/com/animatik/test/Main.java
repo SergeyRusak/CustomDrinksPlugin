@@ -17,16 +17,16 @@ public class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
-        Consoleinfo("Custon drinks is disabled");
-        PreLoad.Finish(this);
         super.onDisable();
+        PreLoad.Finish(this);
+        Consoleinfo("Custon drinks is disabled");
     }
 
     @Override
     public void onEnable() {
-        Consoleinfo("Custon drinks is enabled");
         super.onEnable();
         PreLoad.Startup(this);
+        Consoleinfo("Custon drinks is enabled");
     }
 
 
