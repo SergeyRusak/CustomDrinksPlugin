@@ -26,6 +26,7 @@ public class Listeners implements Listener {
     @EventHandler
     public void CancelDraing(CauldronLevelChangeEvent e){
         if (e.getReason() == CauldronLevelChangeEvent.ChangeReason.BOTTLE_FILL && CoctailLocations.GetMixer(e.getBlock().getLocation())!= null){
+            e.setCancelled(true);
             ListenerTouchCauldrone.CancelFill(e);
         }
     }
