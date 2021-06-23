@@ -1,6 +1,6 @@
-package com.animatik.test.coctails;
+package com.animatik.CustomDrinks.coctails;
 
-import com.animatik.test.Main;
+import com.animatik.CustomDrinks.Main;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

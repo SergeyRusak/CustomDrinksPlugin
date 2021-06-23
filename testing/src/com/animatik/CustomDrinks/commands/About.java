@@ -1,13 +1,10 @@
-package com.animatik.test.commands;
+package com.animatik.CustomDrinks.commands;
 
 
-import com.animatik.test.coctails.Coctail;
-import com.animatik.test.coctails.CoctailBook;
+import com.animatik.CustomDrinks.coctails.CoctailBook;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-
-import org.bukkit.entity.Player;
 
 
 public class About implements CommandExecutor {

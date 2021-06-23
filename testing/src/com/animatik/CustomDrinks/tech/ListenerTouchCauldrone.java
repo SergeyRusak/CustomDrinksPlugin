@@ -1,24 +1,19 @@
-package com.animatik.test.tech;
+package com.animatik.CustomDrinks.tech;
 
-import com.animatik.test.Main;
-import com.animatik.test.PreLoad;
-import com.animatik.test.coctails.Coctail;
-import com.animatik.test.coctails.CoctailLocations;
-import com.animatik.test.coctails.Ingridient;
+import com.animatik.CustomDrinks.Main;
+import com.animatik.CustomDrinks.PreLoad;
+import com.animatik.CustomDrinks.coctails.Coctail;
+import com.animatik.CustomDrinks.coctails.CoctailLocations;
+import com.animatik.CustomDrinks.coctails.Ingridient;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Levelled;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.CauldronLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-
-import java.util.List;
 
 public class ListenerTouchCauldrone {
 

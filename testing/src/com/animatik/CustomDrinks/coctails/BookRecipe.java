@@ -1,4 +1,4 @@
-package com.animatik.test.coctails;
+package com.animatik.CustomDrinks.coctails;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

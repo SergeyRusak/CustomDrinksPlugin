@@ -1,6 +1,6 @@
-name: test
-main: com.animatik.test.Main
-version: 0.0.0
+name: CustomDrinks
+main: com.animatik.CustomDrinks.Main
+version: 0.0.2
 api-version: 1.13
 
 commands:

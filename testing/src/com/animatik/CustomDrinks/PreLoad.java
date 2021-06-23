@@ -1,9 +1,9 @@
-package com.animatik.test;
+package com.animatik.CustomDrinks;
 
-import com.animatik.test.coctails.BookRecipe;
-import com.animatik.test.coctails.CoctailBook;
-import com.animatik.test.coctails.CoctailLocations;
-import com.animatik.test.tech.Sounds;
+import com.animatik.CustomDrinks.coctails.BookRecipe;
+import com.animatik.CustomDrinks.coctails.CoctailBook;
+import com.animatik.CustomDrinks.coctails.CoctailLocations;
+import com.animatik.CustomDrinks.tech.Sounds;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -140,14 +140,11 @@ public class PreLoad {
         preloadIng();
         CoctailLocations.importing();
         Sounds.PreLoadSounds();
-        Listenering(plugin);
     }
+
     public static void Finish(Plugin plugin){
 
         CoctailLocations.exporting();
     }
-
-
-
 
 }

@@ -1,4 +1,4 @@
-package com.animatik.test.tech;
+package com.animatik.CustomDrinks.tech;
 
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;

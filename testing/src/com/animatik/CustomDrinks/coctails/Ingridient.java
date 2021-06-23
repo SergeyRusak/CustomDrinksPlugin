@@ -1,4 +1,4 @@
-package com.animatik.test.coctails;
+package com.animatik.CustomDrinks.coctails;
 
 public class Ingridient {
     int Adelhyde;

@@ -1,4 +1,4 @@
-package com.animatik.test.coctails;
+package com.animatik.CustomDrinks.coctails;
 
 import com.google.gson.GsonBuilder;
 import org.bukkit.Location;

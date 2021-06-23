@@ -1,6 +1,5 @@
-package com.animatik.test.tech;
+package com.animatik.CustomDrinks.tech;
 
-import com.animatik.test.PreLoad;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;

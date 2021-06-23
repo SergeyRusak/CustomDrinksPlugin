@@ -1,6 +1,5 @@
-package com.animatik.test.coctails;
+package com.animatik.CustomDrinks.coctails;
 
-import com.animatik.test.Main;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemFlag;

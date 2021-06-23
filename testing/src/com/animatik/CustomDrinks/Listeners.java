@@ -1,7 +1,7 @@
-package com.animatik.test;
+package com.animatik.CustomDrinks;
 
-import com.animatik.test.coctails.CoctailLocations;
-import com.animatik.test.tech.ListenerTouchCauldrone;
+import com.animatik.CustomDrinks.coctails.CoctailLocations;
+import com.animatik.CustomDrinks.tech.ListenerTouchCauldrone;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

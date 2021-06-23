@@ -1,4 +1,4 @@
-package com.animatik.test;
+package com.animatik.CustomDrinks;
 
 
 import org.bukkit.event.Listener;
