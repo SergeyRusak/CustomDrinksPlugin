@@ -2,22 +2,14 @@ package com.animatik.test;
 
 import com.animatik.test.coctails.CoctailLocations;
 import com.animatik.test.tech.ListenerTouchCauldrone;
-import com.animatik.test.tech.Sounds;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.Sound;
-import org.bukkit.World;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.CauldronLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.List;
 
 
 public class Listeners implements Listener {
@@ -36,8 +28,6 @@ public class Listeners implements Listener {
         if (e.getAction() == Action.RIGHT_CLICK_BLOCK &&
             e.getClickedBlock().getType() == Material.CAULDRON &&
             e.hasItem())  {
-
-            Main.Consoleinfo(e.getPlayer().getInventory().getItem(EquipmentSlot.HAND).getItemMeta().getDisplayName());
 
            ItemStack item = e.getPlayer().getInventory().getItemInMainHand();
 
